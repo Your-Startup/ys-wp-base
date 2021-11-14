@@ -2,6 +2,7 @@
 
 define('HOME_URL', get_home_url());
 define('THEME_DIR_URI', get_template_directory_uri());
+define('CURRENT_USER_ID', get_current_user_id());
 
 const THEME_DIR   = __DIR__;
 const THEME_INC   = THEME_DIR . '/inc';
@@ -12,10 +13,16 @@ const PLUGINS_DIR = THEME_DIR . '/plugins';
 
 header('Content-Type: text/html; charset=utf-8');
 
+// Автоподгрузка классов
+require_once __DIR__ . '/vendor/autoload.php';
+
+require_once THEME_DIR . '/core/bootstrap.php';
+//require_once THEME_DIR . '/inc/bootstrap.php';
+
 //require_once PLUGINS_DIR . '/loader.php';
 
 spl_autoload_register(function ($class) {
-    $prefix = 'GRL\\';
+    $prefix = 'YS\\';
 
     $len = strlen($prefix);
 

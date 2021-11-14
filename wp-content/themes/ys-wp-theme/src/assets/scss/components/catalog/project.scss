@@ -1,0 +1,143 @@
+.section-project {
+    min-height: 730px;
+    padding-top: 80px;
+    padding-bottom: 50px;
+
+    h2 {
+        margin-bottom: 50px;
+    }
+}
+
+.project {
+    display: grid;
+
+    grid-template-columns: 630px 1fr;
+    grid-gap: 30px 58px;;
+
+    h3 {
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 59px;
+        color: $primary-green;
+    }
+
+    .project-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .project-price {
+        border-radius: 10px;
+        pointer-events: none;
+        width: 240px;
+        box-shadow: none;
+        padding: 0 10px;
+    }
+
+    .tabs-labels {
+        background-color: #fff;
+        border: 2px solid #21A636;
+        box-sizing: border-box;
+        box-shadow: 0 2px 15px -2px rgba(83, 83, 83, 0.15);
+        border-radius: 10px;
+        display: flex;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        overflow: hidden;
+
+        .tab-label {
+            width: 100%;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.5s;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+            cursor: pointer;
+
+
+            color: #535353;
+
+            &.active {
+                font-weight: 500;
+                background-color: #21A636;
+                color: #fff;
+            }
+        }
+    }
+
+    .tab {
+        font-size: 14px;
+        line-height: 22px;
+
+        color: #212121;
+        display: none;
+
+        &.active {
+            display: block;
+        }
+
+        .specification-item {
+            border-bottom: 1px solid rgba(198, 198, 198, 0.5);
+            padding-bottom: 8px;
+
+            margin-bottom: 13px;
+            display: flex;
+            justify-content: space-between;
+
+            &:last-of-type {
+                border: none;
+                margin-bottom: 0;
+            }
+        }
+
+        .feedback-client {
+            display: flex;
+
+            align-items: center;
+            .client-name {
+                font-weight: 500;
+                font-size: 25px;
+                line-height: 30px;
+                color: #212121;
+            }
+        }
+
+        .client-img {
+            width: 73px;
+            height: 73px;
+            border-radius: 100%;
+            margin-right: 15px;
+        }
+    }
+
+    @media all and (max-width: $phone-lg) {
+        grid-template-columns: 1fr;
+
+        h3 {
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 29px;
+        }
+
+        .project-price {
+            height: 42px;
+            width: auto;
+        }
+
+        .tabs-labels {
+            margin-top: 0;
+            margin-bottom: 12px;
+
+            .tab-label {
+                font-weight: 500;
+                font-size: 11px;
+                line-height: 13px;
+                padding: 0 5px;
+            }
+        }
+    }
+}

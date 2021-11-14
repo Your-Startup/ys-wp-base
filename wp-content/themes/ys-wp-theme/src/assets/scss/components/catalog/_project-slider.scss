@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+$left: 15px;
+$right: 10px;
+
+.project-images {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    flex-direction: column;
+    overflow: hidden;
+
+    .project-slider {
+        height: 100%;
+        width: 100%;
+    }
+
+    .project-slider-thumbs {
+        width: 100%;
+        overflow: unset;
+        padding: 15px 37px 0;
+
+        .image-item {
+            min-height: 130px;
+            transition: transform 1s, filter 1s;
+            cursor: pointer;
+            border-radius: 8px;
+
+            &:hover {
+                filter: brightness(60%);
+            }
+        }
+
+        .swiper-slide-thumb-active {
+            filter: brightness(60%);
+            transform: translateY(-5px);
+        }
+    }
+
+    .image-item {
+        min-height: 430px;
+        display: flex;
+        align-items: center;
+        background-position: center;
+        background-size: cover;
+        border-radius: 10px;
+        cursor: zoom-in;
+    }
+
+    .swiper-button {
+        > div {
+            height: 100%;
+            top: 0;
+            margin: 0;
+            width: 37px;
+            box-sizing: content-box;
+            background-color: #fff;
+            display: flex;
+            align-items: flex-end;
+
+            &:after {
+                display: flex;
+                height: 130px;
+                width: 30px;
+                align-items: center;
+                justify-content: center;
+                color: #066716;
+            }
+        }
+
+        .swiper-button-next {
+            right: 0;
+
+                justify-content: flex-end;
+        }
+
+        .swiper-button-prev {
+            left: 0;
+
+                justify-content: flex-start;
+        }
+    }
+
+    .swiper-button-next {
+
+    }
+
+    img {
+        width: 100%;
+    }
+
+    @media all and (max-width: $phone-lg) {
+        height: 260px;
+
+        .image-item {
+            min-height: 180px;
+        }
+
+        .project-slider {
+            padding: 0;
+        }
+
+        .project-slider-thumbs {
+            .image-item {
+                min-height: 64px;
+            }
+        }
+
+        .swiper-button {
+            display: none;
+
+        }
+    }
+
+}

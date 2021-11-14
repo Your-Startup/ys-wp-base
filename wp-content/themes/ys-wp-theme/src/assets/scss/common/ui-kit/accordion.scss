@@ -1,0 +1,16 @@
+.accordion {
+    .accordion-inner {
+        overflow   : hidden;
+        max-height : 0;
+        opacity: 0;
+        transition : 1s;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .active {
+        opacity: 1;
+    }
+}

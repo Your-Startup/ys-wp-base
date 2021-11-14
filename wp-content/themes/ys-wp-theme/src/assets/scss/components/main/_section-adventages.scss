@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+.section-advantages {
+    min-height: 480px;
+    padding-top: 70px;
+    padding-bottom: 40px;
+
+    .advantages {
+        display: grid;
+        justify-content: space-between;
+        grid-template-columns: 240px repeat(3, 278px);
+        margin-top: 70px;
+
+        .advantages-item {
+            font-size: 14px;
+            line-height: 160%;
+            color: rgba(2, 23, 5, 0.7);
+
+            img {
+                margin-bottom: 10px;
+            }
+
+            h4 {
+                color: #021705;
+                margin-bottom: 10px;
+            }
+
+            strong {
+                font-style: italic;
+                font-weight: 500;
+                color: rgba(0, 26, 51, 0.8);
+            }
+        }
+
+        @media all and (max-width: $phone-md) {
+            margin-top: 40px;
+            grid-row-gap: 22px;
+            grid-template-columns: 100%;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+html * {
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6,{
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    outline: 0;
+}
+
+.phone-is-hidden {
+    @media all and (max-width: $phone-md) {
+        display: none!important;
+    }
+}
+
+.desktop-is-hidden {
+    @media all and (min-width: $phone-md) {
+        display: none!important;
+    }
+}

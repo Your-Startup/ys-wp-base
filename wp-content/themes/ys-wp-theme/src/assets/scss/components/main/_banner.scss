@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+.section1 {
+    background-color: $mint;
+    padding: 0;
+
+    .section-background {
+        height: 941px;
+        background: radial-gradient(99.02% 97.61% at 70.46% 97.61%, rgba(33, 166, 54, 0.36) 0%, rgba(13, 13, 13, 0) 100%), linear-gradient(0deg, rgba(33, 166, 54, 0.1), rgba(33, 166, 54, 0.1)), linear-gradient(99.56deg, rgba(0, 0, 0, 0.6) 2.35%, rgba(0, 0, 0, 0.15) 97.88%), linear-gradient(90deg, rgba(0, 0, 0, 0.8) -1.44%, rgba(0, 0, 0, 0.15) 100%), url($url + '/background-min.jpg') center, #000;
+        background-size: cover;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 89.5855473%);
+        padding-top: 250px;
+    }
+
+    h1 {
+        margin: 0;
+        max-width: 792px;
+        color: $white;
+        span {
+            color: $primary-green;
+        }
+    }
+
+    .description {
+        max-width: 437px;
+        margin-top: 15px;
+        font-size: 20px;
+        line-height: 154%;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 55px;
+    }
+
+    @media all and (max-width: $phone-md) {
+        .section-background {
+            min-height: 595px;
+            height: auto;
+            padding-top: 140px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96.302521%);
+        }
+
+        .description {
+            font-size: 18px;
+            margin-bottom: 45px;
+        }
+    }
+}

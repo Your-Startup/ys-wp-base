@@ -28,3 +28,5 @@
 /wp-content/languages/
 /wp-config.php
 /.htaccess
+/wp-content/themes/ys-wp-theme/package-lock.json
+/wp-content/themes/ys-wp-theme/node_modules/

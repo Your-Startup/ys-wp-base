@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+.section-contacts {
+    min-height: 682px;
+    position: relative;
+    overflow: hidden;
+
+    .contacts {
+        display: flex;
+        flex-direction: column;
+        padding-top: 70px;
+
+        h2 {
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-weight: 500;
+            font-size: 25px;
+            line-height: 30px;
+            margin-bottom: 8px;
+            color: $black2;
+            display: flex;
+
+            &:before {
+                width: 32px;
+                height: 32px;
+                margin-right: 9px;
+            }
+
+            &.address {
+                &:before {
+                    content: url($url + '/icon/green/map-pin.svg');
+                }
+            }
+
+            &.email {
+                &:before {
+                    content: url($url + '/icon/green/email.svg');
+                }
+            }
+
+            &.phone {
+                &:before {
+                    content: url($url + '/icon/green/phone.svg');
+                }
+            }
+
+            &.clock {
+                &:before {
+                    content: url($url + '/icon/green/clock.svg');
+                }
+            }
+        }
+
+        .contact-value {
+            font-size: 14px;
+            line-height: 130%;
+            color: rgba(0, 0, 0, 0.7);
+            margin-bottom: 24px;
+            display: block;
+            margin-left: 41px;
+            width: 293px;
+        }
+
+        .button-box {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 24px;
+
+            color: $black;
+            margin-top: 50px;
+
+            a {
+                margin-top: 14px;
+            }
+        }
+    }
+
+    .map {
+        height: 682px;
+        position: absolute;
+        width: 50%;
+        right: 0;
+        top: 0;
+    }
+
+    @media all and (max-width: $phone-md) {
+        .contacts { padding-bottom: 55px;}
+        .map {
+            position: relative;
+            width: auto;
+            margin-left: -30px;
+            margin-right: -30px;
+            height: 410px;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+.section-catalog {
+    padding-top: 50px;
+    padding-bottom: 60px;
+
+    h2 {
+        margin-bottom: 60px;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 45px;
+        margin-bottom: 70px;
+    }
+
+    .button-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+    @media all and (max-width: $phone-md) {
+        padding-top: 25px;
+        padding-bottom: 35px;
+
+        h2 {
+            margin-bottom: 36px;
+        }
+
+        .cards {
+            grid-template-columns: 1fr;
+            margin-bottom: 28px;
+        }
+    }
+}

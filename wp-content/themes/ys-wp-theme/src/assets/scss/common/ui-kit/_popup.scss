@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+.popup-wrapper {
+    overflow-y: auto;
+    padding: 50px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 100%;
+    max-width: 100%;
+    z-index: 1000;
+    background-color: $overlay-black-two;
+
+    @media all and (max-width: $tablet-md - 1) {
+        padding: 0;
+    }
+
+    &.popup-fullscreen {
+        padding: 0;
+        z-index: 1001;
+        animation: fadeIn ease 1s;
+    }
+
+    .popup-inner {
+        border-radius: $radius-8;
+        max-width: 100%;
+        min-width: 320px;
+        margin: auto;
+
+        &.popup-fullscreen {
+            @media all and (max-width: $tablet-md - 1) {
+                border-radius: 0;
+                min-height: 100%;
+                width: 100%;
+            }
+        }
+    }
+
+    .popup-content {
+        padding: $indent-20;
+    }
+
+    @keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
+}

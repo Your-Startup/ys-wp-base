@@ -1,0 +1,122 @@
+@charset "utf-8";
+
+footer {
+    background: rgba(198, 198, 198, 0.1);
+    border-top: 0.5px solid rgba(175, 175, 175, 0.2);
+}
+
+.footer {
+    position: relative;
+    min-height: 180px;
+    padding: 25px 0;
+}
+
+.footer-wrapper {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+
+    &.footer-bottom {
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    a {
+        color: $black2;
+    }
+
+    .footer-contacts {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        a {
+            display: flex;
+            align-items: center;
+
+            &:before {
+                width: 24px;
+                height: 24px;
+                margin-right: 8px;
+            }
+
+            &.phone {
+                font-weight: 500;
+                font-size: 22px;
+                line-height: 27px;
+                margin-bottom: 9px;
+
+                &:before {
+                    content: url($url + '/icon/phone-black.svg');
+                }
+            }
+
+            &.email {
+                font-size: 20px;
+                line-height: 24px;
+
+                color: #535353;
+                &:before {
+                    content: url($url + '/icon/email.svg');
+                }
+            }
+        }
+    }
+
+    .logo {
+        width: 127px;
+        height: 49px;
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: 0.06em;
+        flex-shrink: 0;
+
+        img {
+            margin-right: 10px;
+        }
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 130%;
+        color: #535353;
+    }
+
+    .privacy-policy {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.07em;
+        text-decoration-line: underline;
+        color: #535353;
+    }
+
+    .your-startup {
+        display: flex;
+        font-size: 14px;
+        line-height: 130%;
+        color: #535353;
+
+        &:before {
+            content: url($url + '/icon/ys-logo.svg');
+            width: 10px;
+            height: 14px;
+            margin-right: 8px;
+        }
+    }
+}
+
+@media all and (max-width: $phone-lg) {
+    .footer-wrapper {
+        flex-direction: column;
+
+        .footer-contacts {
+            align-items: flex-start;
+            margin-top: 24px;
+        }
+    }
+}

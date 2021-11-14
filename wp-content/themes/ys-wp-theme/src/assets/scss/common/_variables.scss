@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+// Директория с изображениями
+$url: "/wp-content/themes/sk-project-new/redesign/dist/images";
+
+// Размер шрифта
+
+$font-xxlg: 30px;
+$font-xlg: 24px;
+$font-lg: 18px;
+$font-md: 16px;
+$font-sm: 14px;
+$font-xs: 12px;
+$font-xxs: 10px;
+
+// Заголовки
+
+$h1-lg: 30px;
+$h1: 24px;
+$h2: 20px;
+$h3: 18px;
+$h4: 16px;
+$h5: 14px;
+
+// Толщина шрифта
+
+$font-x-bold: 800;
+$font-bold: bold;
+$font-s-bold: 600;
+$font-normal: normal;
+
+// Межстрочный интервал
+
+$line-height-lg: 1.5;
+$line-height-md: 1.3;
+$line-height: 1;
+
+// Отступы
+
+$indent-48: 48px;
+$indent-32: 32px;
+$indent-30: 30px;
+$indent-24: 24px;
+$indent-20: 20px;
+$indent-16: 16px;
+$indent-12: 12px;
+$indent-8: 8px;
+$indent-4: 4px;
+$indent-2: 2px;
+
+// Межбуквенное расстрояние
+
+$letter-spacing: 1px;
+
+// Цвета
+
+// Основные
+
+$primary-green: rgb(33, 166, 54);
+
+// Черно-белые
+
+$black: rgb(2, 23, 5);
+$black2: rgb(14, 14, 14);
+$mint: rgb(247, 255, 248);
+
+$dark-grey-one: rgba(50, 50, 50, 1);
+$dark-grey-two: rgba(33, 33, 33, 1);
+$dark-grey-three: rgba(71, 71, 71, 1);
+$dark-grey-four: rgb(148, 148, 148);
+$medium-grey-one: rgb(126, 126, 126);
+$medium-grey-two: rgba(102, 102, 102, 1);
+$light-grey-one: rgba(242, 242, 242, 1);
+$light-grey-two: rgba(204, 204, 204, 1);
+$white: rgba(255, 255, 255, 1);
+$white-opacity: rgba(255, 255, 255, 0.3);
+
+// Второстепенные цвета
+
+$pale-pink: rgba(252, 235, 237, 1);
+$pale-red: rgba(241, 109, 106, 1);
+$strong-red: rgba(223, 58, 77, 1);
+$yellow: rgba(254, 187, 34, 1);
+$light-yellow: rgba(254, 187, 34, 0.1);
+$pale-yellow: rgba(255, 248, 233, 1);
+$dark-violet: rgba(63, 20, 189, 1);
+$light-violet: rgba(131, 90, 252, 1);
+$secondary-light-blue: rgba(0, 153, 255, 1);
+$secondary-dark-blue: rgba(20, 69, 189, 1);
+$secondary-light-green: rgba(140, 213, 179, 1);
+$secondary-dark-green: rgba(0, 139, 82, 1);
+
+// Градиенты
+
+$gradient-white-one: linear-gradient(270deg, #FFFFFF 0%, #F2F2F2 100%);
+$gradient-white-two: linear-gradient(270deg, #F2F2F2 0%, #FFFFFF 100%);
+$gradient-black: linear-gradient(270deg, #323232 0%, #000000 100%);
+$gradient-blue-one: linear-gradient(270deg, #0099FF 0%, #0099FF 0.01%, #0077EE 53.47%, #1445BD 100%);
+$gradient-blue-two: linear-gradient(270deg, #0099FF 0%, #0077EE 100%);
+$gradient-blue-three: linear-gradient(191.85deg, #00C9FF 13.82%, #0099FF 96.67%);
+$gradient-orange: linear-gradient(270deg, #FDCC5D 0%, #F16D6A 100%);
+$gradient-green: linear-gradient(270deg, #74BE5A 0%, #15A863 100%);
+$gradient-red: linear-gradient(270deg, #D6514E 0%, #540E0E 100%);
+
+// Цвета оверлея
+
+$overlay-white: rgba(255, 255, 255, 0.75);
+$overlay-black: rgba(0, 0, 0, 0.5);
+$overlay-black-two: rgba(0, 0, 0, 0.8);
+
+$overlay-white-scroll: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 65.71%);
+$overlay-white-scroll-reverse: linear-gradient(-270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 65.71%);
+$overlay-dark-gray-one: radial-gradient(61.51% 57.44% at 50% 42.56%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 77.5%);
+$overlay-dark-gray-two: linear-gradient(0deg, #151515 67.32%, rgba(0, 0, 0, 0) 88.21%);
+
+// Тени
+
+$grey-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+$grey-shadow-two: 0px 0px 2px rgba(0, 0, 0, 0.25);
+$blue-shadow: 0px 4px 10px rgba(20, 69, 189, 0.15);
+
+// Скругление
+
+$radius-32: 32px;
+$radius-20: 20px;
+$radius-12: 12px;
+$radius-8: 8px;
+$radius-4: 4px;
+$radius-2: 2px;
+
+// Брейкпоинты
+
+$desktop-lg: 1440px;
+$desktop-md: 1368px;
+$desktop-sm: 1280px;
+$desktop-xs: 1200px;
+$tablet-lg: 1024px;
+$tablet-md: 992px;
+$tablet-sm: 768px;
+$phone-lg: 640px;
+$phone-md: 480px;
+$phone-sm: 360px;
+$phone-xs: 320px;
+
+

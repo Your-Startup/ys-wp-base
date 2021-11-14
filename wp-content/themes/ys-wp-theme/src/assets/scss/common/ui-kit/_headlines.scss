@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+// Заголовоки
+
+h1 {
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 120%;
+    letter-spacing: 0.035em;
+
+    @media all and (max-width: $phone-md) {
+        font-size: 34px;
+        line-height: 39px;
+    }
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 120%;
+
+    @media all and (max-width: $phone-md) {
+        font-size: 26px;
+        line-height: 120%;
+    }
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+}
+
+h4 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.h5, .h6 {
+    font-size: $h5;
+}
+
+.h1-big, .h1, .h2, .h3, .h4, .h5, .h6 {
+
+    &.line-height-md {
+        line-height: $line-height-md;
+    }
+
+    &.center {
+        text-align: center;
+    }
+
+    &.bold {
+        font-weight: $font-bold;
+    }
+
+    &.extra-bold {
+        font-weight: $font-x-bold;
+    }
+}

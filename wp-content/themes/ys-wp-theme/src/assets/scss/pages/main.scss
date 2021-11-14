@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+@import
+'~swiper/swiper.scss',
+'~swiper/components/effect-fade/effect-fade.scss',
+'~swiper/components/navigation/navigation.scss',
+'~swiper/components/lazy/lazy.scss';
+
+@import
+"../common/variables",
+
+"../common/ui-kit/aligns",
+"../common/ui-kit/containers",
+"../common/ui-kit/margins",
+"../common/ui-kit/headlines",
+"../common/ui-kit/buttons",
+
+"../components/commons",
+
+"../common/ui-kit/popup/image",
+"../common/ui-kit/popup",
+
+    // Подключение хедера
+"../components/header",
+    // Подключение футера
+"../components/footer",
+"../components/menu",
+
+"../components/main/banner",
+"../components/main/section2",
+"../components/main/section3",
+
+"../components/catalog/catalog",
+"../components/catalog/project",
+"../components/catalog/project-slider",
+"../components/catalog/card",
+
+"../components/main/quiz",
+
+"../components/main/section-adventages",
+"../components/main/section-consultation",
+"../components/main/section-license",
+"../components/main/section-contacts"
+;

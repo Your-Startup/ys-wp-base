@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+// Контейнеры
+
+.container-fluid {
+    width: 100%;
+    max-width: 100%;
+}
+
+.container {
+    width: 1200px;
+    max-width: 100%;
+}
+
+.padding-horizontal {
+    padding-left: $indent-30;
+    padding-right: $indent-30;
+}
+
+.padding-vertical {
+    padding-top: $indent-16;
+    padding-bottom: $indent-16;
+
+    @media all and (min-width: $tablet-lg) {
+        padding-top: $indent-32;
+        padding-bottom: $indent-32;
+    }
+}
+
+
+.is-hidden {
+    display : none !important;
+}
+
+.is-fixed {
+    position: fixed;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+// Скрывает бейдж гугл invisible капчи
+.grecaptcha-badge {
+    display: none !important;
+}

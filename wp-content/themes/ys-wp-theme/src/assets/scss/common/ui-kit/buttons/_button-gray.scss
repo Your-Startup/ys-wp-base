@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+.button {
+
+    &.filled-gray {
+        background-color: $light-grey-one;
+        color: $black;
+    }
+
+    &.bordered-gray {
+        border: 1px solid $light-grey-two;
+    }
+
+}
