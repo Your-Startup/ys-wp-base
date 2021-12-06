@@ -5,12 +5,14 @@ use YS\Core\Routes\ItemRoute;
 use YS\Core\Service\ContentFormatter;
 use YS\Core\Util\ArrayUtil;
 use YS\Core\Util\DateUtil;
+use YS\Core\Util\FieldsUtil;
 use YS\Core\Util\StringUtil;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Validation;
 
 abstract class AbstractEntity
 {
+    const COLUMNS_DEFAULT_FIELDS_MAP = [];
 
     protected array $metaFields = [];
     private array $columnsMap = [];
@@ -40,7 +42,7 @@ abstract class AbstractEntity
     protected array $lazyLoad = [];
 
     protected ItemRoute $routeService;
-    protected const PROTECTED_FIELDS = [
+    public const PROTECTED_FIELDS = [
         'guarded',
         'hidden',
         'lazyLoad',
@@ -332,7 +334,14 @@ abstract class AbstractEntity
 
             // Устанавливаем в мета поля, если нет свойства
             if (!property_exists($this, $column)) {
+                $map        = array_flip($this->getColumnsMap());
+                $mapDefault = array_flip($this::COLUMNS_DEFAULT_FIELDS_MAP);
+                if (isset($mapDefault[$column]) || isset($map[$column])) {
+                    continue;
+                }
+
                 $this->metaFields[$column] = $value;
+
                 continue;
             }
 
@@ -354,15 +363,16 @@ abstract class AbstractEntity
         }
     }
 
+    public function getColumnsMap()
+    {
+        return $this->columnsMap;
+    }
+
     public function setColumnsMap(array $map)
     {
         $this->columnsMap += $map;
     }
 
-    public function getColumnsMap()
-    {
-        return $this->columnsMap;
-    }
 
     /**
      * Делает мапинг полей
@@ -374,11 +384,12 @@ abstract class AbstractEntity
     private function mapColumns(array $columns): array
     {
         foreach ($columns as $key => $value) {
-            if (!isset($this->columnsMap[$key])) {
+            $keyFromMap = $this->columnsMap[$key] ?? $this::COLUMNS_DEFAULT_FIELDS_MAP[$key] ?? null;
+            if (!$keyFromMap) {
                 continue;
             }
 
-            $columns[$this->columnsMap[$key]] = $value;
+            $columns[$keyFromMap] = $value;
             unset($columns[$key]);
         }
 
@@ -460,7 +471,14 @@ abstract class AbstractEntity
         foreach ($topLevelFields as $field) {
             $field = StringUtil::formatCase($field, StringUtil::FORMAT_CAMEL_CASE);
 
-            if (!in_array($field, $this->lazyLoad, true)) {
+            if ($this->reflection) {
+                try {
+                    $property = $this->reflection->getProperty($field);
+                    $lazyLoad = FieldsUtil::parsePhpdoc($property, 'lazyLoad');
+                } catch (\ReflectionException $e) {}
+            }
+
+            if (empty($lazyLoad)) {
                 continue;
             }
 

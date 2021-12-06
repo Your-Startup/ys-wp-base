@@ -50,7 +50,7 @@ final class QueryWp extends Query
 
     public function prepare(string $query, $args = []): QueryWp
     {
-        $this->query = $this->connection->prepare($query, $args);
+        $this->query = $args ? $this->connection->prepare($query, $args) : $query;
 
         return $this;
     }

@@ -19,19 +19,19 @@ class TermEntity extends AbstractEntity
     protected int    $postsCount;
     protected string $uri;
 
-    protected string $seoTitle;
-    protected string $seoDescription;
+    //protected string $seoTitle;
+    //protected string $seoDescription;
 
-    protected array $lazyLoad = ['seoTitle', 'seoDescription'];
+    const COLUMNS_DEFAULT_FIELDS_MAP = [
+        'term_id' => 'id',
+        'name'    => 'title'
+    ];
 
     public function __construct()
     {
         parent::__construct();
 
-        $this->setColumnsMap([
-            'term_id'           => 'id',
-            'name'        => 'title',
-        ]);
+        $this->setColumnsMap([]);
     }
 
     public function getSeoTitle()
@@ -44,7 +44,8 @@ class TermEntity extends AbstractEntity
         return SeoUtil::getTaxonomySeoDescription($this->id, static::$taxonomy);
     }
 
-    protected function setDefaultValues() {}
-
-    public static function setValidationConstraints(ClassMetadata $metadata) {}
+    public function getUri()
+    {
+        return get_term_link($this->id);
+    }
 }

@@ -8,10 +8,14 @@ namespace YS\Core\Entity\Post;
 //use YS\Core\Service\NewsService;
 //use YS\Core\Util\DateUtil;
 use YS\Core\Entity\AbstractEntity;
+use YS\Core\Repository\Media\MediaRepository;
 use YS\Core\Util\SeoUtil;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints as Assert;
 
+/**
+ * @method setThumbnailId($value)
+ */
 class PostEntity extends AbstractEntity
 {
     protected int    $id;
@@ -19,18 +23,21 @@ class PostEntity extends AbstractEntity
     protected string $content;
     protected string $status;
     protected string $slug;
-    protected string $lead;
+    protected string $excerpt;
     protected ?int   $authorId;
     //protected ?array $author;
     protected int    $publishedAt;
     protected int    $updatedAt;
-    //protected ?int   $attachmentId;
-    //protected ?array $attachment;
+    protected ?int   $thumbnailId;
+    /**
+     * @param $thumbnailId
+     */
+    protected ?array $thumbnail;
     //protected ?array $categories;
     //protected ?array $tags;
     protected int    $commentsCount;
     protected bool   $isCommentsOpen;
-    //protected string $uri;
+    protected string $uri;
 
    // private CategoriesRepository $categoriesRepo;
     //private TagsRepository       $tagsRepo;
@@ -40,33 +47,38 @@ class PostEntity extends AbstractEntity
 
    // protected $guarded  = ['author', 'attachment', 'categories', 'tags'];
    // protected $hidden   = ['authorId', 'attachmentId', 'primaryCatId'];
-   // protected $lazyLoad = ['author', 'attachment', 'categories', 'tags', 'seoTitle', 'seoDescription', 'seoImage', 'isExclusive'];
+    protected array $lazyLoad = ['author', 'attachment', 'categories', 'tags', 'seoTitle', 'seoDescription', 'seoImage'];
+
+    const COLUMNS_DEFAULT_FIELDS_MAP = [
+        'ID'                => 'id',
+        'post_title'        => 'title',
+        'post_content'      => 'content',
+        'post_status'       => 'status',
+        'post_name'         => 'slug',
+        'post_excerpt'      => 'lead',
+        'post_author'       => 'authorId',
+        'comment_status'    => 'isCommentsOpen',
+        'comment_count'     => 'commentsCount',
+        'post_date_gmt'     => 'publishedAt',
+        'post_modified_gmt' => 'updatedAt',
+    ];
+
+    private MediaRepository $mediaRepo;
 
     public function __construct()
     {
         parent::__construct();
 
-        $this->setColumnsMap([
-            'ID'                => 'id',
-            'post_title'        => 'title',
-            'post_content'      => 'content',
-            'post_status'       => 'status',
-            'post_name'         => 'slug',
-            'post_excerpt'      => 'lead',
-            'post_author'       => 'authorId',
-            'comment_status'    => 'isCommentsOpen',
-            'comment_count'     => 'commentsCount',
-            'post_date_gmt'     => 'publishedAt',
-            'post_modified_gmt' => 'updatedAt',
-        ]);
-/*
         // Repositories
-        $this->authorRepo     = new UsersRepository();
-        $this->categoriesRepo = new CategoriesRepository();
-        $this->tagsRepo       = new TagsRepository();
+        //$this->authorRepo     = new UsersRepository();
+        //$this->categoriesRepo = new CategoriesRepository();
+        //$this->tagsRepo       = new TagsRepository();
         $this->mediaRepo      = new MediaRepository();
-        $this->newsService    = new NewsService();
-*/
+       // $this->newsService    = new NewsService();
+
+        $this->setColumnsMap([
+            '_thumbnail_id' => 'thumbnailId',
+        ]);
     }
 
     /**
@@ -90,9 +102,17 @@ class PostEntity extends AbstractEntity
         ]));
     }
 
-    public function getAttachment()
+    public function getThumbnail(): array
     {
+        if (isset($this->thumbnail)) {
+            return $this->thumbnail;
+        }
 
+        if (empty($this->thumbnailId)) {
+            return [];
+        }
+
+        return $this->thumbnail = $this->mediaRepo->find($this->thumbnailId, ['uri']);
     }
 
     public function getCategories()
@@ -117,7 +137,7 @@ class PostEntity extends AbstractEntity
 
     public function getUri()
     {
-        return $this->routeService->getNewsRoute($this->slug);
+        return get_permalink($this->id);
     }
 
     /**

@@ -13,8 +13,7 @@ class QueryBuilderPost extends QueryBuilder
 
         $this
             ->addSelect('p.*')
-            ->addFrom(TABLE_WP_POSTS, 'p')
-            ->addWhere('p.post_status = "publish"');
+            ->addFrom(TABLE_WP_POSTS, 'p');
     }
 
     /**
@@ -23,7 +22,7 @@ class QueryBuilderPost extends QueryBuilder
      * @param string $id ID или slug объекта
      * @param array $fields Столбцы используемые в условии
      */
-    private function addIdQuery(string $id, array $fields): static
+    private function addIdQuery(string $id, array $fields): self
     {
         $format = '%s';
         $field  = $fields[1];
@@ -36,17 +35,17 @@ class QueryBuilderPost extends QueryBuilder
         return $this->addWhere($field . ' = ' . $format);
     }
 
-    public function addPostTypeQuery(string $postType): static
+    public function addPostTypeQuery(string $postType): self
     {
         return $this->addWhere('p.post_type = "' . $postType . '"');
     }
 
-    public function addPostIdQuery(string $id, array $fields = ['p.ID', 'p.post_name']): static
+    public function addPostIdQuery(string $id, array $fields = ['p.ID', 'p.post_name']): self
     {
         return $this->addIdQuery($id, $fields);
     }
 
-    public function addFieldsQuery(array $fields, string $entityName): static
+    public function addFieldsQuery(array $fields, string $entityName): self
     {
         $fields = FieldsUtil::getMetaFieldsKeys($fields, $entityName);
 

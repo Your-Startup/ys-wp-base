@@ -25,7 +25,7 @@ class QueryBuilderTerm extends QueryBuilder
      * @param string $id ID или slug объекта
      * @param array $fields Столбцы используемые в условии
      */
-    private function addIdQuery(string $id, array $fields): static
+    private function addIdQuery(string $id, array $fields): self
     {
         $format = '%s';
         $field  = $fields[1];
@@ -38,19 +38,19 @@ class QueryBuilderTerm extends QueryBuilder
         return $this->addWhere($field . ' = ' . $format);
     }
 
-    public function addTaxonomyQuery(string $taxonomy): static
+    public function addTaxonomyQuery(string $taxonomy): self
     {
         return $this
             ->addJoin(TABLE_WP_TERM_TAXONOMY, 'tt', 'ON t.term_id = tt.term_id')
             ->addWhere('tt.taxonomy = "' . $taxonomy . '"');
     }
 
-    public function addTermIdQuery(string $id, array $fields = ['t.term_id', 't.slug']): static
+    public function addTermIdQuery(string $id, array $fields = ['t.term_id', 't.slug']): self
     {
         return $this->addIdQuery($id, $fields);
     }
 
-    public function addFieldsQuery(array $fields, string $entityName): static
+    public function addFieldsQuery(array $fields, string $entityName): self
     {
         $fields = FieldsUtil::getMetaFieldsKeys($fields, $entityName);
 
@@ -60,7 +60,7 @@ class QueryBuilderTerm extends QueryBuilder
                 ->addSelect($pmKey . '.meta_value', $field)
                 ->addLeftJoin(
                     TABLE_WP_TERMMETA, $pmKey,
-                    'ON t.ID = ' . $pmKey . '.term_id AND ' . $pmKey . '.meta_key = "' . $field . '"'
+                    'ON t.term_id = ' . $pmKey . '.term_id AND ' . $pmKey . '.meta_key = "' . $field . '"'
                 );
         }
 

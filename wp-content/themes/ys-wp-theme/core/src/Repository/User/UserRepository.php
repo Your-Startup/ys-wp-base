@@ -1,16 +1,16 @@
 <?php
 
-namespace YS\Core\Repository\Post;
+namespace YS\Core\Repository\User;
 
 use YS\Core\Database\QueryBuilder\QueryBuilderPost;
+use YS\Core\Database\QueryBuilder\QueryBuilderUser;
 use YS\Core\Entity\AbstractEntity;
 use YS\Core\Entity\Collection;
-use YS\Core\Entity\Post\UserEntity;
+use YS\Core\Entity\User\UserEntity;
 use YS\Core\Repository\AbstractRepository;
 
-class PostRepository extends AbstractRepository
+class UserRepository extends AbstractRepository
 {
-    protected string $postType    = 'post';
     protected string $entityClass = UserEntity::class;
 
     protected array $defaultParams = [
@@ -33,17 +33,10 @@ class PostRepository extends AbstractRepository
         'with_total'      => true,
     ];
 
-    public function setPostType($postType): self
-    {
-        $this->postType = $postType;
-        return $this;
-    }
-
     public function find(string $id, ?array $fields = ['all'], string $format = self::ARRAY_FORMAT)
     {
-        $query = (new QueryBuilderPost())
-            ->addPostTypeQuery($this->postType)
-            ->addPostIdQuery($id)
+        $query = (new QueryBuilderUser())
+            ->addUserIdQuery($id)
             ->addFieldsQuery($fields, $this->entityClass);
 
         $this->db->getCache()->off();
@@ -78,7 +71,6 @@ class PostRepository extends AbstractRepository
         //$validator->validate($params);
 
         $query = (new QueryBuilderPost())
-            ->addPostTypeQuery($this->postType)
             ->addFieldsQuery($params['fields'], $this->entityClass)
             ->addWhere('p.post_status = "publish"')
             ->addGroupBy('p.ID');

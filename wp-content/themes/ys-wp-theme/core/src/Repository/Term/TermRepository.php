@@ -26,14 +26,14 @@ class TermRepository extends AbstractRepository
         'with_pagination' => false,
         'with_total'      => false,
     ];
-
-    public function find(string $id, ?array $fields = ['all'], string $format = self::ARRAY_FORMAT): AbstractEntity|array
+    public function setTaxonomy($taxonomy): self
+    {
+        $this->taxonomy = $taxonomy;
+        return $this;
+    }
+    public function find(string $id, ?array $fields = ['all'], string $format = self::ARRAY_FORMAT)
     {
         $query = (new QueryBuilderTerm())
-            //->addSelect('t.term_id', 'id')
-            //->addSelect('t.name', 'title')
-            //->addSelect('t.slug', 'slug')
-            //->addSelect('tt.parent', 'parent')
             ->addTaxonomyQuery($this->taxonomy)
             ->addTermIdQuery($id)
             ->addFieldsQuery($fields, $this->entityClass);
@@ -58,7 +58,7 @@ class TermRepository extends AbstractRepository
         return $this->prepareItem($item, $fields, $format);
     }
 
-    public function findAll(array $params = [], string $format = self::ARRAY_FORMAT): array|Collection
+    public function findAll(array $params = [], string $format = self::ARRAY_FORMAT)
     {
         $params = $this->prepareParams($params);
 
@@ -69,7 +69,7 @@ class TermRepository extends AbstractRepository
 
         //$this->addFilterQuery($query, $params);
         //$this->addPaginationQuery($query, $params);
-print_r($query->getQueryString());
+
         // Подготовка запроса и получение данных
         $data = $this->db
             ->prepare($query->getQueryString())

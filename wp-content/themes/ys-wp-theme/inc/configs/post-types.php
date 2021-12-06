@@ -2,54 +2,36 @@
 // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
 
 return [
-    'articles' => [
-        'title_single'  => __('Полезная информация', 'stroy'),
-        'title_multi'   => __('Статьи', 'stroy'),
-        'menu_position' => 17,
+    'poems' => [
+        'title_single'  => __('Стихотворение', 'poems'),
+        'title_multi'   => __('Стихотворения', 'poems'),
+        'menu_position' => 5,
         'menu_icon'     => 'dashicons-book',
         'supports'      => ['title', 'editor', 'excerpt', 'thumbnail'],
-        'taxonomies'    => ['category'],
+        'taxonomies'    => ['poems_themes', 'poems_authors'],
+        'labels' => [
+            'new_item'           => 'Новое ' . __('Стихотворение', 'poems'),
+            'add_new_item'       => 'Новое ' . __('Стихотворение', 'poems'),
+        ]
     ],
-    'our_work' => [
-        'title_single'  => __('Наша работа', 'stroy'),
-        'title_multi'   => __('Наши работы', 'stroy'),
-        'menu_position' => 17,
-        'menu_icon'     => 'dashicons-book',
+    'transactions' => [
+        'title_single'  => __('Движение средств', 'poems'),
+        'title_multi'   => __('Движение средств', 'poems'),
+        'menu_position' => 5,
+        'menu_icon'     => 'dashicons-money-alt',
+        'supports'      => ['title'],
+        'taxonomies'    => [],
+        'labels' => [
+            'new_item'           => 'Новая ' . __('Операция', 'poems'),
+            'add_new_item'       => 'Новая ' . __('Операция', 'poems'),
+        ]
+    ],
+    'articles' => [
+        'title_single'  => __('Статья', 'poems'),
+        'title_multi'   => __('Статьи', 'poems'),
+        'menu_position' => 5,
+        'menu_icon'     => 'dashicons-text-page',
         'supports'      => ['title', 'editor', 'excerpt'],
         'taxonomies'    => [],
-    ],
-    'slider'   => [
-        'title_single'  => __('Слайд', 'stroy'),
-        'title_multi'   => __('Слайдер', 'stroy'),
-        'menu_position' => 17,
-        'menu_icon'     => 'dashicons-format-gallery',
-        'supports'      => ['title', 'editor', 'excerpt'],
-        'taxonomies'    => [],
-    ],
-    'video'    => [
-        'title_single'  => __('Видео', 'stroy'),
-        'title_multi'   => __('Видео', 'stroy'),
-        'menu_position' => 17,
-        'menu_icon'     => 'dashicons-video-alt3',
-        'supports'      => ['title', 'editor', 'excerpt'],
-        'taxonomies'    => [],
-    ],
-    'videoR'   => [
-        'title_single'  => __('Видео отзыв', 'stroy'),
-        'title_multi'   => __('Видео отзывы', 'stroy'),
-        'menu_position' => 17,
-        'menu_icon'     => 'dashicons-video-alt3',
-        'supports'      => ['title', 'editor', 'excerpt'],
-        'taxonomies'    => [],
-        'has_archive'   => 'reviews',
-    ],
-    'quiz'     => [
-        'title_single'  => __('Ответ quiz', 'stroy'),
-        'title_multi'   => __('Ответы quiz', 'stroy'),
-        'menu_position' => 17,
-        'menu_icon'     => 'dashicons-clipboard',
-        'supports'      => ['title', 'editor', 'excerpt'],
-        'taxonomies'    => [],
-        'has_archive'   => false,
     ],
 ];

@@ -4,6 +4,8 @@ namespace YS\Core\Wp;
 
 class PostType
 {
+    private array $postTypes = [];
+
     public function init()
     {
         $this->initPostTypes();
@@ -37,13 +39,49 @@ class PostType
                 'comments',
                 'author'
             ]
-
         ];
 
         foreach ($postTypes as $slug => $postTypeData) {
             $postTypeData = array_merge($defaults, $postTypeData);
+
             $this->addPostType($slug, $postTypeData, $postTypeData['title_single'], $postTypeData['title_multi']);
         }
+
+        $this->initTemplates();
+    }
+
+    private function initTemplates()
+    {
+        add_action('wp_enqueue_scripts', function () {
+            is_post_type_archive($this->postTypes) && $page = 'archive';
+            is_singular($this->postTypes) && $page = 'single';
+
+            if (empty($page)) {
+                return;
+            }
+
+            $postType = get_query_var('post_type');
+
+            \YS\Core\Site::getInstance()->loadAssets("$postType/$page", 'ys-page');
+        });
+
+        add_filter('archive_template_hierarchy', function ($templates) {
+            $postType = str_replace(['archive-', '.php'], '', $templates[count($templates) - 2]);
+            if (in_array($postType, $this->postTypes)) {
+                array_unshift($templates, 'template-parts/' . $postType . '/archive.php');
+            }
+
+            return $templates;
+        });
+
+        add_filter('single_template_hierarchy', function ($templates) {
+            $postType = str_replace(['single-', '.php'], '', $templates[count($templates) - 2]);
+            if (in_array($postType, $this->postTypes)) {
+                array_unshift($templates, 'template-parts/' . $postType . '/single.php');
+            }
+
+            return $templates;
+        });
     }
 
     private function initTaxonomies()
@@ -62,33 +100,21 @@ class PostType
         }
     }
 
-    /**
-     * Если в директории /fruitframe/assets/admin/icons/ есть изображение png
-     * с именем <имя типа поста>.png для поста и <имя типа поста>-small.png для меню,
-     * то они будут автоматически использованы в качестве иконки
-     *
-     * @param string $name
-     * @param array $config
-     * @param string $singular
-     * @param string $multiple
-     * @param bool $icon
-     */
-    private function addPostType(string $name, array $config, string $singular = 'Entry', string $multiple = 'Entries')
+    private function addPostType(string $name, array $config, string $singular = 'Запись', string $multiple = 'Записи')
     {
-        if (!isset($config['labels'])) {
-            $config['labels'] = [
-                'name'               => __($multiple, 'bmr'),
-                'singular_name'      => __($singular, 'bmr'),
-                'not_found'          => 'No ' . __($multiple, 'bmr') . ' Found',
-                'not_found_in_trash' => 'No ' . __($multiple, 'bmr') . ' found in Trash',
-                'edit_item'          => 'Edit ',
-                'search_items'       => 'Search ' . __($multiple, 'bmr'),
-                'view_item'          => __('Посмотреть'),
-                'new_item'           => 'Новая ' . __($singular, 'bmr'),
-                'add_new'            => __('Создать'),
-                'add_new_item'       => 'Новая ' . __($singular, 'bmr'),
-            ];
-        }
+        $config['labels'] = array_merge([
+            'name'               => $multiple,
+            'singular_name'      => $singular,
+            'not_found'          => 'No ' . $multiple . ' Found',
+            'not_found_in_trash' => 'No ' . $multiple . ' found in Trash',
+            'edit_item'          => 'Edit ',
+            'search_items'       => 'Search ' . $multiple,
+            'view_item'          => __('Посмотреть'),
+            'new_item'           => 'Новая ' . $singular,
+            'add_new'            => __('Создать'),
+            'add_new_item'       => 'Новая ' . $singular,
+        ], $config['labels'] ?? []);
+
         /*
         if (file_exists(FRUITFRAME_ASSETS . '/admin/icons/' . $name . '-small.png')) {
             $config['menu_icon'] = FRUITFRAME_ASSETS_URL . '/admin/icons/' . $name . '-small.png';
@@ -109,6 +135,8 @@ class PostType
         }
         */
         register_post_type($name, $config);
+
+        $this->postTypes[] = $name;
     }
 
     private function addTaxonomies($name, $config)

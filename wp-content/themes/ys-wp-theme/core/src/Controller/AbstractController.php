@@ -1,36 +1,44 @@
 <?php
-namespace RB\Site\Controller\Api;
+
+namespace YS\Core\Controller;
+
+use YS\Core\Repository\AbstractRepository;
 
 abstract class AbstractController
 {
-    /**
-     * @var string
-     */
-    protected $namespace = 'rb';
-    /**
-     * @var string
-     */
-    protected $endpoint;
-    /**
-     * @var string
-     */
-    protected $version = 'v1.0';
-    /**
-     * @var \RB\Site\Repository\AbstractRepository
-     */
-    protected $repo;
+    public array $queries = [];
+    protected string $namespace = 'ys';
+    protected string $version   = 'v1.0';
+    protected string $endpoint;
+    protected AbstractRepository $repo;
 
-    public function run()
+    public function run(): self
     {
+        $this->initCustomPages();
         $this->setupHooks();
+
+        return $this;
     }
 
-    protected function setupHooks()
+    final protected function setupHooks()
     {
         add_action('rest_api_init', [$this, 'registerRoutes'], 10, 0);
+        add_action('parse_query', [$this, 'actionWpQuery']);
     }
 
-    protected function addRoute(string $route, array $args = [], bool $override = false): bool
+    final public function actionWpQuery($wpQuery)
+    {
+        foreach ($this->queries as $query) {
+            if (!get_query_var($query)) {
+                continue;
+            }
+
+            $wpQuery->is_home       = false;
+            $wpQuery->is_front_page = false;
+        }
+    }
+
+    final protected function addRoute(string $route, array $args = [], bool $override = false): self
     {
         $namespace = $this->namespace . '/' . $this->version;
         $endpoint  = '/' . $this->endpoint;
@@ -61,8 +69,12 @@ abstract class AbstractController
             $argGroup['args'] = array_merge($commonArgs, $argGroup['args']);
         }
 
-        return register_rest_route($namespace, $endpoint . $route, $args, $override);
+        register_rest_route($namespace, $endpoint . $route, $args, $override);
+
+        return $this;
     }
 
     abstract public function registerRoutes();
+
+    abstract protected function initCustomPages();
 }

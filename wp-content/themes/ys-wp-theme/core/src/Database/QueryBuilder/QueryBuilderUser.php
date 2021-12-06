@@ -3,6 +3,7 @@
 namespace YS\Core\Database\QueryBuilder;
 
 use YS\Core\Database\QueryBuilder;
+use YS\Core\Util\FieldsUtil;
 
 class QueryBuilderUser extends QueryBuilder
 {
@@ -11,9 +12,8 @@ class QueryBuilderUser extends QueryBuilder
         parent::__construct();
 
         $this
-            ->addSelect('p.*')
-            ->addFrom(TABLE_WP_POSTS, 'p')
-            ->addWhere('p.post_status = "publish"');
+            ->addSelect('u.*')
+            ->addFrom(TABLE_WP_USERS, 'u');
     }
 
     /**
@@ -22,7 +22,7 @@ class QueryBuilderUser extends QueryBuilder
      * @param string $id ID или slug объекта
      * @param array $fields Столбцы используемые в условии
      */
-    private function addIdQuery(string $id, array $fields)
+    private function addIdQuery(string $id, array $fields): self
     {
         $format = '%s';
         $field  = $fields[1];
@@ -32,43 +32,25 @@ class QueryBuilderUser extends QueryBuilder
             $field = $fields[0];
         }
 
-        $this->addWhere($field . ' = ' . $format);
+        return $this->addWhere($field . ' = ' . $format);
     }
 
-    public function addPostTypeQuery(string $postType): static
+    public function addUserIdQuery(string $id, array $fields = ['u.ID', 'u.user_nicename']): self
     {
-        $this->addWhere('p.post_type = "' . $postType . '"');
-        return $this;
+        return $this->addIdQuery($id, $fields);
     }
 
-    protected function addUserIdQuery(string $id, array $fields = ['u.ID', 'u.user_nicename']): static
+    public function addFieldsQuery(array $fields, string $entityName): self
     {
-        $this->addIdQuery($id, $fields);
-        return $this;
-    }
+        $fields = FieldsUtil::getMetaFieldsKeys($fields, $entityName);
 
-    public function addFieldsQuery(array $defaultFields, array $params): static
-    {
-        if (empty($params['fields'])) {
-            return $this;
-        }
-
-        /*if ($params['fields'] === ['all']) {
-            return;
-        }*/
-
-        foreach ($params['fields'] as $field) {
-            //if (isset($this->defaultFields[$field])) {
-            if (in_array($field, $defaultFields)) {
-                continue;
-            }
-
-            $pmKey = 'pm_' . $field;
+        foreach ($fields as $field) {
+            $umKey = 'um_' . $field;
             $this
-                ->addSelect($pmKey . '.meta_value', $field)
+                ->addSelect($umKey . '.meta_value', $field)
                 ->addLeftJoin(
-                    TABLE_WP_POSTMETA, $pmKey,
-                    'ON p.ID = ' . $pmKey . '.post_id AND ' . $pmKey . '.meta_key = "' . $field . '"'
+                    TABLE_WP_USERMETA, $umKey,
+                    'ON u.ID = ' . $umKey . '.user_id AND ' . $umKey . '.meta_key = "' . $field . '"'
                 );
         }
 

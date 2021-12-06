@@ -10,7 +10,7 @@ use YS\Core\Service\FilterService;
 use YS\Core\Util\ArrayUtil;
 use YS\Core\Util\StringUtil;
 
-abstract class AbstractRepository
+abstract class AbstractRepository implements RepositoryInterface
 {
     /** Подключение к БД */
     protected Database\QueryInterface $db;
@@ -19,35 +19,11 @@ abstract class AbstractRepository
     /** Параметры по умолчанию для списка */
     protected array $defaultParams;
 
-    const ARRAY_FORMAT  = 'array';
-    const ENTITY_FORMAT = 'entity';
-
     public function __construct()
     {
         $this->db = Database::getConnection();
         $this->filterService = new FilterService();
     }
-
-    /**
-     * Получает запись
-     *
-     * @param string|int $id ID записи
-     * @param array|null $fields Какие поля возвращать
-     * @param string $format Формат возвращаемых данных
-     *
-     * @return AbstractEntity|array
-     */
-    abstract public function find(string $id, ?array $fields = ['all'], string $format = self::ARRAY_FORMAT): AbstractEntity|array;
-
-    /**
-     * Получает список записей
-     *
-     * @param array $params Параметры фильтрации
-     * @param string $format Формат возвращаемых данных
-     *
-     * @return array|Collection
-     */
-    abstract public function findAll(array $params = [], string $format = self::ARRAY_FORMAT): array|Collection;
 
     /**
      * Готовит запись к выдаче
@@ -522,15 +498,13 @@ abstract class AbstractRepository
             ->removeOrderBy()
             ->removeLimit()
             ->removeGroupBy()
-
             ->addSelect('COUNT(0)')
         ;
 
-        $this->db->prepare($qb->getQueryString());
-        $this->db->execute();
-        $total = (int)$this->db->fetchColumn();
-
-        return $total;
+        return (int)$this->db
+            ->prepare($qb->getQueryString())
+            ->execute()
+            ->fetchColumn();
     }
 
     /**
