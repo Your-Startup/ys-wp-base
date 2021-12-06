@@ -1,0 +1,11 @@
+<pre><code>
+config create:
+  dbname: ys
+  dbuser: root
+  dbpass:
+  extra-php: |
+    define( 'WP_DEBUG', true );
+    define( 'WP_DEBUG_LOG', true );
+    define( 'WP_DEBUG_DISPLAY', false );
+
+</code></pre>
