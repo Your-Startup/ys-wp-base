@@ -14,11 +14,17 @@ export function popupJs() {
             return;
         }
 
-        openPopupInAction(open);
+        openPopupInAction(open).then(() => {});
         close && closePopup();
 
         open === 'image' && openPopupImage(element);
     });
+
+
+    let params = new URLSearchParams(document.location.search),
+        popup  = params.get('popup_open');
+
+    openPopupInAction(popup).then(r => {});
 }
 
 /**
@@ -26,7 +32,7 @@ export function popupJs() {
  *
  * @param popupDataSelector
  */
-export function openPopupInAction(popupDataSelector) {
+export async function openPopupInAction(popupDataSelector) {
     if (!popupDataSelector) {
         return;
     }
@@ -36,7 +42,6 @@ export function openPopupInAction(popupDataSelector) {
         popupInners = document.querySelectorAll(`.js-popup-inner`),
         html        = document.documentElement;
 
-    popup.classList.remove('is-hidden');
     popupInners.classList.add('is-hidden');
     html.classList.add('overflow-hidden');
 
@@ -49,6 +54,8 @@ export function openPopupInAction(popupDataSelector) {
     }
 
     popupInner.classList.remove('is-hidden');
+
+    popup.fadeIn(500);
 }
 
 /**
@@ -59,11 +66,13 @@ export function closePopup() {
         popupInners = document.querySelectorAll(`.js-popup-inner`),
         html        = document.documentElement;
 
-    popup.classList.add('is-hidden');
-    popupInners.classList.add('is-hidden');
     html.classList.remove('overflow-hidden');
-    popup.classList.remove('popup-fullscreen');
-   // popup.classList.remove('js-stop-closing');
+
+    popup.fadeOut(500, () => {
+        popupInners.classList.add('is-hidden');
+        popup.classList.remove('popup-fullscreen');
+        // popup.classList.remove('js-stop-closing');
+    });
 }
 
 /**

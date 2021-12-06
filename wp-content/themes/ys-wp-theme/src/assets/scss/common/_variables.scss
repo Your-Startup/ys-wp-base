@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 // Директория с изображениями
-$url: "/wp-content/themes/sk-project-new/redesign/dist/images";
+$url: "/stihi/wp-content/themes/ys-wp-theme/dist/images";
 
 // Размер шрифта
 
@@ -104,7 +104,8 @@ $gradient-red: linear-gradient(270deg, #D6514E 0%, #540E0E 100%);
 
 // Цвета оверлея
 
-$overlay-white: rgba(255, 255, 255, 0.75);
+//$overlay-white: rgba(255, 255, 255, 0.75);
+$overlay-white: rgba(255, 255, 255, 1);
 $overlay-black: rgba(0, 0, 0, 0.5);
 $overlay-black-two: rgba(0, 0, 0, 0.8);
 

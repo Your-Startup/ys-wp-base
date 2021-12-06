@@ -1,0 +1,41 @@
+
+.store_filter_search {
+    input {
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        border-bottom: 1px solid #cde1ff;
+        color: #276f97;
+
+        &::placeholder {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 20px;
+            color: #276F97;
+        }
+    }
+}
+
+.catalog_store_filter .store_filter_search input {
+    max-width: 180px !important;
+}
+
+
+.chexkbox_active {
+    background: #5da6cf;
+    border: none;
+}
+
+.filter_title_active {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #276f97;
+
+    svg {
+        stroke: #276f97;
+        transform: rotate(180deg)
+    }
+}

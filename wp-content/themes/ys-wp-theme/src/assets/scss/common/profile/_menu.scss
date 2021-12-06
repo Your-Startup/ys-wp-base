@@ -1,0 +1,73 @@
+.my-bonuses__flex {
+    display: flex;
+}
+
+.my-bonuses__list {
+    display: flex;
+    flex-direction: column;
+    padding: 37px 36px 37px 26px;
+}
+
+.my-bonuses__item {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.my-bonuses__item:last-child {
+    margin-bottom: 0;
+}
+
+.my_bonuses_count {
+    position: relative;
+    width: 21px;
+    padding-top: 4px;
+    margin-left: 15px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    color: #006aa5;
+    display: none;
+}
+
+.my-bonuses__menu {
+    width: 290px;
+    flex-shrink: 0;
+    height: max-content;
+    box-shadow: 0 2px 16px rgba(163, 163, 163, 0.1);
+    border-radius: 4px;
+}
+
+.my-bonuses__content {
+    margin-left: 65px;
+    flex-basis: 100%;
+}
+
+.my_bonuses_count img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.my-bonuses__link {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #525252;
+    padding: 0;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        color: #006aa5;
+    }
+}
+
+.my-bonuses__link_active {
+    color: #006aa5;
+}

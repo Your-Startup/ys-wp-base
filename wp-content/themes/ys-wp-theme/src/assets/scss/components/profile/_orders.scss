@@ -1,0 +1,135 @@
+
+/*Orders_block*/
+
+.orders_year {
+    display: flex;
+    padding-bottom: 15px;
+
+    div {
+        padding: 9px 13px;
+        background: #f5f9ff;
+        border-radius: 30px;
+        margin-right: 8px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+        color: #696969;
+    }
+}
+
+.order_day {
+    margin-top: 24px;
+    border: 1px solid #f0f0f0;
+    box-sizing: border-box;
+    box-shadow: 0px 14px 30px rgba(122, 122, 122, 0.2);
+    border-radius: 4px;
+    color: #525252;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.order_day_header {
+    display: flex;
+    justify-content: space-between;
+    background: #f5f9ff;
+    padding: 16px 24px;
+    align-items: center;
+    font-size: 12px;
+
+    span {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+
+.order_day_content {
+    padding: 15px 25px 8px 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order_day_imgs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.order_day_img {
+    background: #ebebeb;
+    border-radius: 2px;
+    width: 80px;
+    height: 100px;
+    margin-left: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.order_day_title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.order_day_number {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    cursor: pointer;
+}
+
+.order_day_delivery {
+    font-family: 'Montserrat', sans-serif;
+    color: #525252;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: max-content;
+    padding-bottom: 8px;
+}
+
+.order_delivery_title {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    padding-bottom: 5px;
+}
+
+.order_delivery_date {
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    color: #c4c4c4;
+}
+
+.order_delivery_state {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+
+/*Orders_block*/
+
+
+
+.count-orders {
+    display: block;
+    position: absolute;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #828282;
+    top: 0;
+    left: 150px;
+}

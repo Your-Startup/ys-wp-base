@@ -1,0 +1,76 @@
+<footer>
+    <div class="container">
+        <div class="footer_content">
+            <div class="footer__hide">
+                <div class="footer__img"><img src="/dist/images/menu.svg" alt=""></div>
+                <div class="footer__btn">СВЯЗАТЬСЯ С НАМИ</div>
+            </div>
+            <div class="footer_block footer_menu">
+                <div>Подробнее о курсе</div>
+                <div>Каталог</div>
+                <div>Статьи</div>
+                <div>Вопросы и ответы</div>
+                <div>Благотворительность</div>
+            </div>
+            <div class="footer_block footer_contacts">
+                <img class="image" src="<%= '/dist/images/main_logo.png' %>" alt="">
+                <div class="hide">Attachments_nvstepan@mail.ru</div>
+                <div class="footer_social hide">
+                    <img src="<%= '/dist/images/telega.svg' %>" alt="">
+                    <img src="<%= '/dist/images/TikTok.svg' %>" alt="">
+                    <img src="<%= '/dist/images/VK.svg' %>" alt="">
+                    <img src="<%= '/dist/images/YT.svg' %>" alt="">
+                    <img src="<%= '/dist/images/FB.svg' %>" alt="">
+                    <img src="<%= '/dist/images/INST.svg' %>" alt="">
+                </div>
+                <div class="footer_contacts_btn">СВЯЗАТЬСЯ С НАМИ</div>
+                <div class="footer__developer">
+                    <div class="inherit">
+                        <div>Разработка</div>
+                        <div>сайта:</div>
+                    </div>
+                    <img class="dev_img" src="<%= '/dist/images/SU_logo.svg' %>" alt="">
+                </div>
+            </div>
+            <div class="footer__special-line">
+                <div class="footer_social">
+                    <img src="<%= '/dist/images/telega.svg' %>" alt="">
+                    <img src="<%= '/dist/images/TikTok.svg' %>" alt="">
+                    <img src="<%= '/dist/images/VK.svg' %>" alt="">
+                    <img src="<%= '/dist/images/YT.svg' %>" alt="">
+                    <img src="<%= '/dist/images/FB.svg' %>" alt="">
+                    <img src="<%= '/dist/images/INST.svg' %>" alt="">
+                </div>
+                <div class="attachments">Attachments_nvstepan@mail.ru</div>
+            </div>
+            <div class="footer_block footer_bureaucracy">
+                <div class="copyrights">
+                    <div>
+                        Копирование информации запрещено
+                    </div>
+                    <div>
+                        без письменного разрешения.
+                    </div>
+                </div>
+                <div class="footer_bureaucracy_confidentiality">Политика конфиденциальности</div>
+                <div>Публичная оферта</div>
+                <div class="footer_developer">
+                    <div>
+                        <div>Разработка</div>
+                        <div>сайта:</div>
+                    </div>
+                    <img src="<%= '/dist/images/SU_logo.svg' %>" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div class="popup-wrapper d-flex<?= $isHidden ?> js-popup-wrapper">
+    <?php do_action('ys/footer/popups') ?>
+
+    <?php require TEMPLATE . '/_common/popups/menu.php'; ?>
+    <?php require TEMPLATE . '/_common/popups/login.php'; ?>
+    <?php require TEMPLATE . '/_common/popups/reset-password.php'; ?>
+    <?php require TEMPLATE . '/_common/popups/registration.php'; ?>
+</div>

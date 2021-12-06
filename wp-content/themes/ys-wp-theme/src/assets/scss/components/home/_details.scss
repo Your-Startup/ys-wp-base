@@ -1,0 +1,61 @@
+
+
+/*Details*/
+
+.details {
+    padding-bottom: 100px;
+    padding-top: 100px;
+}
+
+.details_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.details_text {
+    flex-basis: 65%;
+}
+
+.details_title {
+    color: #276f97;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 55px;
+    max-width: 60%;
+}
+
+.details_subtitle {
+    padding-top: 70px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 29px;
+}
+
+.details_problems {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 145%;
+    color: #414141;
+
+    span {
+        color: #4a8aad;
+    }
+
+    p {
+        padding-top: 25px;
+    }
+}
+
+.details_img {
+    flex-basis: 25%;
+    background: grey;
+}
+
+.details_img_mobail {
+    display: none;
+}
+/*Details*/

@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+@import
+'~swiper/swiper.scss',
+'~swiper/components/effect-fade/effect-fade.scss',
+'~swiper/components/navigation/navigation.scss',
+'~swiper/components/lazy/lazy.scss',
+
+"../../common/variables",
+
+    // Компоненты
+"../../components/poems/product",
+"../../components/poems/product/recommended"
+;

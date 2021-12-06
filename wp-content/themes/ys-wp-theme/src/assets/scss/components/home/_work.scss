@@ -1,0 +1,50 @@
+
+/*Work*/
+
+.work {
+    padding-bottom: 100px;
+    padding-top: 100px;
+    background: #f5f9ff;
+}
+
+.work_blocks {
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    justify-content: space-between;
+}
+
+.work_block {
+    display: flex;
+}
+
+.work_block_number {
+    background: #fff;
+    border-radius: 8px;
+    padding: 0 30px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+    font-size: 72px;
+    color: #0f7ab6;
+    margin-right: 24px;
+    height: min-content;
+}
+
+.work_block_text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 145%;
+    color: #414141;
+    padding-top: 5px;
+}
+
+.work_title {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 37px;
+    padding-bottom: 70px;
+}
+
+
+/*Work*/

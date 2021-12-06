@@ -1,0 +1,102 @@
+
+<header>
+    <div class="special__menu">
+        <div class="menu__nav">
+            <div class="menu__iamge">
+                <img class="menu__svg js-popup-active" data-popup="menu" src="<?= DIST_IMAGE . '/menu.svg' ?>" alt="">
+            </div>
+            <div>
+                <div class="menu__header_catalog">Подробнее о курсе</div>
+                <div class="menu__header_catalog">Каталог</div>
+                <div class="menu__header_catalog">Статьи</div>
+                <div class="menu__header_catalog">Вопросы и ответы</div>
+                <div class="menu__header_catalog">Благотворительность</div>
+                <label class="menu__header_search">
+                    <input placeholder="Поиск" type="text">
+                </label>
+                <div class="menu__header_free">ПОПРОБОВАТЬ БЕСПЛАТНО</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header_content">
+            <div class="menu_img js-popup-active" data-popup="menu"><img src="<?= DIST_IMAGE . '/menu.svg' ?>" alt="">
+            </div>
+
+            <div class="header_crutch"></div>
+
+            <a class="header_catalog" href="<?= HOME_URL . '/poems/' ?>">Каталог</a>
+
+            <label class="header_search">
+                <input placeholder="Поиск" type="text">
+            </label>
+
+            <div class="header_free">ПОПРОБОВАТЬ БЕСПЛАТНО</div>
+
+            <div class="header_user">
+
+                <div class="header_enter">
+                    <?php if ($currentUser) { ?>
+                        <div class="header_enter_ava">
+                            <img src="<?= DIST_IMAGE . '/nik_nik.svg' ?>" alt="">
+                        </div>
+                        <div class="nik_nik">
+                            <?= $currentUser['login'] ?>
+                        </div>
+
+                        <div class="header_enter_menu">
+                            <div class="enter_menu_header">
+                                <div class="header_enter_ava">
+                                    <img class="ava" src="<?= DIST_IMAGE . '/nik_nik.svg' ?>" alt="">
+                                </div>
+                                <div class="nik_nik">
+                                    <?= $currentUser['login'] ?>
+                                </div>
+                            </div>
+                            <div class="enter_menu_ul">
+                                <div class="enter_menu_li">Мой профиль</div>
+                                <div class="enter_menu_li">
+                                    <div>
+                                        Приступить
+                                    </div>
+                                    <div>
+                                        к изучению стихов
+                                    </div>
+                                </div>
+                                <div class="enter_menu_li">Избранное</div>
+                                <div class="enter_menu_li">Мои заказы</div>
+                                <div class="enter_menu_li">Мои бонусы</div>
+                                <div class="enter_menu_li">Подписки</div>
+                            </div>
+                            <div class="enter_menu_exit">Выйти</div>
+                        </div>
+                    <?php } else { ?>
+                        <img src="<?= DIST_IMAGE . '/user.svg' ?>" alt="">
+
+                        <div class="nik_nik">
+                            <span class="hide js-popup-active" data-popup="login">Войти</span>
+                        </div>
+                    <?php } ?>
+                </div>
+
+                <div class="header_basket">
+                    <img src="<?= DIST_IMAGE . '/handbag.svg' ?>" alt=""> <span class="hide">Корзина пуста</span>
+                </div>
+            </div>
+
+            <div class="header__menu_icon">
+                <button class="menu__btn">
+                    <svg width="32" height="24" viewbox="0 0 32 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 11.9092H31" stroke="#276F97" stroke-width="2" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path d="M1 1H31" stroke="#276F97" stroke-width="2" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path d="M1 22.8184H31" stroke="#276F97" stroke-width="2" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>

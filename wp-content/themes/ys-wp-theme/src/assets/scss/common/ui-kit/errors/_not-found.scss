@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+.not-found-image {
+
+    img {
+        max-width: 94px;
+        min-width: 94px;
+    }
+
+    .not-found-text {
+        font-size: $font-md;
+        font-weight: $font-normal;
+        color: $black;
+        margin-left: $indent-24;
+    }
+
+}
+
+.not-found {
+    color: $black;
+    font-size: $font-md;
+    font-weight: $font-bold;
+    text-align: center;
+
+    @media all and (min-width: $phone-lg) {
+        font-size: $font-lg;
+    }
+}

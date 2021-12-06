@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+@import
+"../all/normalize.scss", // Разобрать на модули
+
+"../common/variables",
+
+    //"../common/ui-kit/aligns",
+"../common/ui-kit/containers",
+    //"../common/ui-kit/margins",
+    //"../common/ui-kit/headlines",
+    //"../common/ui-kit/buttons",
+"../common/ui-kit/errors/form-errors",
+
+    // Компонента
+"../components/menu",
+"../components/commons",
+"../components/header",
+"../components/footer",
+
+    // Подключение попапов
+"../common/ui-kit/popup",
+
+"../common/popups/menu",
+"../common/popups/cookies",
+
+    // Без авторизации
+"../common/popups/login",
+"../common/popups/reset-password",
+"../common/popups/registration",
+
+"../all/adaptive.scss"    // Разобрать на модули
+
+    //"/all/all.scss",
+;

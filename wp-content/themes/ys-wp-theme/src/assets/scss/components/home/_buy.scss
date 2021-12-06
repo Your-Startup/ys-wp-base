@@ -1,0 +1,66 @@
+
+/*Buy*/
+
+.buy {
+    padding-bottom: 100px;
+    padding-top: 100px;
+}
+
+.buy_title {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 37px;
+    width: 34%;
+    padding-bottom: 70px;
+}
+
+.buy_blocks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 33px;
+}
+
+.buy_block {
+    display: flex;
+    background: #f5f9ff;
+    border-radius: 8px;
+    padding: 20px;
+    align-items: center;
+}
+
+.buy_block_number {
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 84px;
+    color: #0f7ab6;
+    padding-right: 10px;
+}
+
+.buy_block_text {
+    padding-left: 12px;
+    border-left: 1px solid #5da6cf;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 145%;
+    color: #414141;
+}
+
+.buy_footer {
+    padding-top: 33px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #414141;
+    width: 70%;
+
+    span {
+        color: #4a8aad;
+    }
+}
+
+
+/*Buy*/

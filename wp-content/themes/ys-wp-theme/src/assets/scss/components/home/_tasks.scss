@@ -1,0 +1,42 @@
+
+/*Tasks*/
+
+.tasks {
+    padding-bottom: 100px;
+    padding-top: 100px;
+}
+
+.tasks_blocks {
+    display: grid;
+    grid-template-columns: repeat(3, 26%);
+    grid-row-gap: 50px;
+    justify-content: space-between;
+}
+
+.tasks_block {
+    display: flex;
+    align-items: flex-start;
+
+    img {
+        margin-right: 18px;
+    }
+
+    div {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: normal;
+        font-size: 17px;
+        line-height: 145%;
+        color: #414141;
+    }
+}
+
+.tasks_title {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 37px;
+    padding-bottom: 70px;
+}
+
+
+/*Tasks*/

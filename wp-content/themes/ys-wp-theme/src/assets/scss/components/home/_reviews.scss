@@ -1,0 +1,142 @@
+.reviews {
+    padding-bottom: 100px;
+    padding-top: 100px;
+    background: #f5f9ff;
+}
+
+.reviews_title {
+    width: 100%;
+    text-align: center;
+    color: #276f97;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 55px;
+    padding-bottom: 70px;
+}
+
+.reviews_blocks {
+    position: relative;
+}
+
+.reviews_blocks_left,
+.reviews_blocks_right {
+    position: absolute;
+    z-index: 3;
+    top: 295px;
+    cursor: pointer;
+}
+
+.reviews_blocks_left {
+    left: -35px;
+}
+
+.reviews_blocks_right {
+    right: -35px;
+}
+
+.reviews_blocks_window {
+    position: relative;
+    overflow: hidden;
+    height: 660px;
+}
+
+.reviews_blocks_carousel {
+    position: absolute;
+    display: flex;
+    left: 0;
+    top: 50px;
+    transition: all 1.5s;
+}
+
+.reviews_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 2px 16px rgba(163, 163, 163, 0.1);
+    border-radius: 8px;
+    margin-right: 25px;
+    padding: 74px 26px 40px 26px;
+    font-family: 'Montserrat', sans-serif;
+    max-height: 660px;
+}
+
+.reviews_block_ava {
+    position: absolute;
+    top: -50px;
+    background: grey;
+    border: 3px solid #288fc8;
+    box-sizing: border-box;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 100px;
+    width: 100px;
+}
+
+.reviews_block_name {
+    display: flex;
+    color: #414141;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    align-items: center;
+
+    img {
+        margin-left: 12px;
+    }
+}
+
+.reviews_block_kid {
+    color: #676767;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    padding-top: 26px;
+    padding-bottom: 18px;
+}
+
+.reviews_block_media {
+    border-radius: 2px;
+    background: grey;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    * {
+        height: 210px;
+        max-width: none;
+    }
+}
+
+.reviews_block_review {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 145%;
+    color: #414141;
+    padding-top: 24px;
+    /**/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+
+    span {
+        font-weight: 500;
+    }
+}
+
+.reviews_block_footer {
+    padding-top: 20px;
+    width: 100%;
+    color: #276f97;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    cursor: pointer;
+}
+

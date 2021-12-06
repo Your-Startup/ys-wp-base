@@ -1,0 +1,81 @@
+/*Benefit*/
+
+.benefit {
+    padding-bottom: 100px;
+    padding-top: 100px;
+}
+
+.benefit_title {
+    width: 100%;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 37px;
+    padding-bottom: 70px;
+}
+
+.benefit_blocks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+}
+
+.benefit_block {
+    display: flex;
+    background: #fff;
+    box-shadow: 0 2px 16px rgba(163, 163, 163, 0.1);
+    border-radius: 10px;
+    padding: 15px 17px;
+}
+
+.benefit_block_number {
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 84px;
+    color: #90cff2;
+    padding-right: 21px;
+}
+
+.benefit_block_text {
+    padding-top: 15px;
+    color: #414141;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 145%;
+    padding-right: 25px;
+}
+
+.benefit_output {
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.benefit_output_text {
+    flex-basis: 75%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 145%;
+    color: #414141;
+
+    p {
+        padding-top: 25px;
+    }
+
+    span {
+        font-weight: 500;
+    }
+}
+
+.benefit_output_img {
+    width: 240px;
+    height: 160px;
+    object-fit: cover;
+    background: grey;
+}
+
+/*Benefit*/

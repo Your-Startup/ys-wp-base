@@ -11,7 +11,8 @@
     max-height: 100%;
     max-width: 100%;
     z-index: 1000;
-    background-color: $overlay-black-two;
+    background-color: $overlay-white;
+    //animation: fadeOut ease 1s;
 
     @media all and (max-width: $tablet-md - 1) {
         padding: 0;
@@ -20,7 +21,7 @@
     &.popup-fullscreen {
         padding: 0;
         z-index: 1001;
-        animation: fadeIn ease 1s;
+        //animation: fadeIn ease 1s;
     }
 
     .popup-inner {
@@ -45,5 +46,10 @@
     @keyframes fadeIn {
         0% {opacity:0;}
         100% {opacity:1;}
+    }
+
+    @keyframes fadeOut {
+        100% {opacity:1;}
+        0% {opacity:0;}
     }
 }

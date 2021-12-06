@@ -1,0 +1,135 @@
+/* Стили для личного кабинета */
+
+.personal_area__block {
+    padding-top: 120px;
+    padding-bottom: 160px;
+}
+
+.personal_area__form-block {
+    margin-left: 65px;
+    width: 100%;
+}
+
+.personal_area__same-line {
+    max-width: 346px;
+}
+
+.personal_area__heading {
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 38px;
+    line-height: 50px;
+    letter-spacing: 0.03em;
+    color: #276f97;
+    margin-bottom: 50px;
+}
+
+.personal_area__flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.personal_area__menu,
+.get_ready__menu {
+    padding: 37px 26px 36px 26px;
+    box-shadow: 0 2px 16px rgba(201, 201, 201, 0.1);
+    border-radius: 4px;
+}
+
+.personal_area__menu-block,
+.get_ready__menu-block {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 90px;
+}
+
+.personal_area__link,
+.get_ready__link {
+    background-color: #fff;
+    max-width: 238px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: left;
+    color: #525252;
+    cursor: pointer;
+
+    &:nth-child(1) {
+        margin-bottom: 16px;
+    }
+}
+
+.personal_area__heading_low {
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 37px;
+    color: #276f97;
+    margin-bottom: 30px;
+}
+
+.personal_area__form {
+    box-shadow: 0 8px 30px rgba(163, 163, 163, 0.1);
+    width: 100%;
+    padding: 70px 127.5px 70px 67.5px;
+    border-radius: 4px;
+}
+
+.personal_area__wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.personal_area__label {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #525252;
+    margin-right: 32px;
+    cursor: pointer;
+}
+
+input[disabled] {
+    background-color: #f2f2f2;
+}
+
+.personal_area__input {
+    width: 346px;
+    padding: 17px 30px;
+    border: 1px solid #c4c4c4;
+    border-radius: 2px;
+}
+
+.personal_area__btn {
+    margin-top: 40px;
+    display: block;
+    margin-left: auto;
+    border: none;
+    padding: 20px 118px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 6px;
+    background: linear-gradient(175.34deg, #7bc1e8 -50.08%, #276f97 191.29%);
+
+    &:hover {
+        background: linear-gradient(175.34deg, #7bc1e8 -50.08%, #619fc1 191.29%);
+        box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.1), inset 0px -4px 4px rgba(91, 91, 91, 0.1);
+    }
+}
+
+
+/* Стили для личного кабинета */

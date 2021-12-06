@@ -1,29 +1,236 @@
-html * {
-    font-family: "Montserrat", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto+Slab:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600&display=swap');
+
+:root {
+    --heading-color: #276f97;
+    --text-color: #363636;
+    --heading-color-light: #4a8aad;
+}
+
+
+/* Указываем box sizing */
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
+audio {
+    display: none;
 }
 
-h1, h2, h3, h4, h5, h6,{
+
+/* Убираем внутренние отступы */
+
+ul,
+ol {
+    padding: 0;
+}
+
+
+/* Убираем внешние отступы */
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
     margin: 0;
 }
 
 a {
-    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Выставляем основные настройки по-умолчанию для body */
+
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    overflow-x: hidden;
+    margin-top: 210px;
+}
+
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+
+ul, ol {
+    &[class] {
+        list-style: none;
+    }
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+
+/* Упрощаем работу с изображениями */
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* Указываем понятную периодичность в потоке данных у article*/
+
+article > * + * {
+    margin-top: 1em;
+}
+
+
+/* Наследуем шрифты для инпутов и кнопок */
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
+        transition-duration: 0.01ms;
+        scroll-behavior: auto;
+    }
+}
+
+
+/*My style*/
+
+
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.padd_top_15 {
+    padding-top: 15px;
+}
+
+.padd_top_5 {
+    padding-top: 5px;
+}
+
+.underline {
+    border-bottom: 1px solid #4a4a4a;
+    width: max-content;
+}
+
+input[type='range'] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 2px;
+    outline: none;
+    background: linear-gradient(to right, #5da6cf 0%, #5da6cf 0%, #e8e8e8 0%, #e8e8e8 100%);
+
+
+    &::-moz-range-track {
+        -moz-appearance: none;
+        width: 100%;
+        height: 2px;
+        outline: none;
+        background: -moz-linear-gradient(to right, #5da6cf 0%, #5da6cf 0%, #e8e8e8 0%, #e8e8e8 100%);
+    }
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 12px;
+        height: 12px;
+        background: #5da6cf;
+        border-radius: 50%;
+    }
+
+    &::-moz-slider-thumb {
+        -webkit-appearance: none;
+        width: 12px;
+        height: 12px;
+        background: #5da6cf;
+        border-radius: 50%;
+    }
+}
+
+input:focus {
     outline: 0;
+    outline-offset: 0;
 }
 
-.phone-is-hidden {
-    @media all and (max-width: $phone-md) {
-        display: none!important;
+button {
+    border: none;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+progress {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background-size: auto;
+    height: 2px;
+    width: 100%;
+}
+
+progress {
+    background: #ebebeb;
+    color: #7ec3e9;
+
+    &::-webkit-progress-bar {
+        background: #ebebeb;
+    }
+
+    &::-moz-progress-bar {
+        background: #7ec3e9;
+    }
+
+    &::-webkit-progress-value {
+        background: #7ec3e9;
     }
 }
 
-.desktop-is-hidden {
-    @media all and (min-width: $phone-md) {
-        display: none!important;
+.link {
+    position: relative;
+    margin-bottom: 40px;
+
+    &::after {
+        position: absolute;
+        content: url($url + '/link.svg');
+        display: block;
+        top: 16px;
+        right: 16px;
     }
 }
+
+.mobile {
+    display: none;
+}
+
+
+/*My style*/

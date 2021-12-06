@@ -1,122 +1,146 @@
-@charset "utf-8";
+/*Footer*/
 
 footer {
-    background: rgba(198, 198, 198, 0.1);
-    border-top: 0.5px solid rgba(175, 175, 175, 0.2);
+    padding-bottom: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #276f97;
+    box-sizing: border-box;
 }
 
-.footer {
-    position: relative;
-    min-height: 180px;
-    padding: 25px 0;
-}
-
-.footer-wrapper {
-    position: relative;
-    z-index: 100;
+.footer_block {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
 
-    &.footer-bottom {
-        align-items: center;
-        margin-top: 40px;
-    }
+.footer_social {
+    display: flex;
 
-    a {
-        color: $black2;
-    }
-
-    .footer-contacts {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-
-        a {
-            display: flex;
-            align-items: center;
-
-            &:before {
-                width: 24px;
-                height: 24px;
-                margin-right: 8px;
-            }
-
-            &.phone {
-                font-weight: 500;
-                font-size: 22px;
-                line-height: 27px;
-                margin-bottom: 9px;
-
-                &:before {
-                    content: url($url + '/icon/phone-black.svg');
-                }
-            }
-
-            &.email {
-                font-size: 20px;
-                line-height: 24px;
-
-                color: #535353;
-                &:before {
-                    content: url($url + '/icon/email.svg');
-                }
-            }
-        }
-    }
-
-    .logo {
-        width: 127px;
-        height: 49px;
-        display: flex;
-        align-items: center;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 120%;
-        letter-spacing: 0.06em;
-        flex-shrink: 0;
-
-        img {
-            margin-right: 10px;
-        }
-    }
-
-    p {
-        font-size: 14px;
-        line-height: 130%;
-        color: #535353;
-    }
-
-    .privacy-policy {
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 15px;
-        letter-spacing: 0.07em;
-        text-decoration-line: underline;
-        color: #535353;
-    }
-
-    .your-startup {
-        display: flex;
-        font-size: 14px;
-        line-height: 130%;
-        color: #535353;
-
-        &:before {
-            content: url($url + '/icon/ys-logo.svg');
-            width: 10px;
-            height: 14px;
-            margin-right: 8px;
-        }
+    img {
+        margin-right: 10px;
     }
 }
 
-@media all and (max-width: $phone-lg) {
-    .footer-wrapper {
-        flex-direction: column;
+.footer_developer {
+    display: flex;
+    align-items: center;
+    color: #000;
+    width: 206px;
 
-        .footer-contacts {
-            align-items: flex-start;
-            margin-top: 24px;
-        }
+    img {
+        margin-left: 15px;
+        width: 96px;
+    }
+}
+
+.footer_menu {
+    width: 100%;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.footer_menu div {
+    cursor: pointer;
+}
+
+.footer_contacts {
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #363636;
+}
+
+.footer_contacts_btn {
+    background: #27749e;
+    border-radius: 6px;
+    padding: 21px 53px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+        background: linear-gradient(206.47deg, #7bc1e8 3.72%, #276f97 142.35%);
+        box-shadow: inset 0 4px 4px rgba(255, 255, 255, 0.1), inset 0px -4px 4px rgba(91, 91, 91, 0.1);
+    }
+}
+
+.inherit {
+    margin-right: 16px;
+}
+
+.footer_bureaucracy {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #363636;
+    width: 100%;
+}
+
+
+/* .footer_bureaucracy div {} */
+
+.footer_bureaucracy_confidentiality {
+    line-height: 13px;
+    border-bottom: 1px solid #4a4a4a;
+    width: max-content;
+}
+
+.footer__developer {
+    display: none;
+}
+
+
+/*Footer*/
+
+.footer__special-line {
+    display: none;
+}
+
+.footer__hide {
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+}
+
+.footer__img {
+    width: 50px;
+    height: 50px;
+}
+
+.footer_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__btn {
+    display: flex;
+    align-items: center;
+    max-width: 155px;
+    background: #27749e;
+    border-radius: 6px;
+    padding: 15px 21px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+        background: linear-gradient(206.47deg, #7bc1e8 3.72%, #276f97 142.35%);
+        box-shadow: inset 0 4px 4px rgba(255, 255, 255, 0.1), inset 0px -4px 4px rgba(91, 91, 91, 0.1);
     }
 }

@@ -1,0 +1,140 @@
+<?php
+?>
+<div class="popup-inner popup-menu is-hidden js-popup-inner js-popup-fullscreen" data-popup="menu">
+    <div class="popup-close icon-close is-mobile js-close"></div>
+
+    <div class="popup-content menu">
+        <?php require TEMPLATE . '/_common/popups/_common/popup-header.php' ?>
+
+        <div class="accordion">
+            <div class="container">
+                <div class="menu__content">
+                    <div class="menu__list" id="accordion">
+                        <h3 class="menu__heading">Подробнее о проекте «Учим стихи просто!»</h3>
+                        <div>
+                            <div class="accordion__list">
+                                <div class="accordion__item">
+                                    <a href="#">Предисловие</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">Как это работает?</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">Какие задачи вы сможете решить с помощью нашего сайта?</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">Какая польза от заучивания стихов наизусть?</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">Работа на сайте</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">При покупке стихотворений из каталога вы получаете</a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="menu__heading">Каталог</h3>
+                        <div>
+                            <div class="accordion__list">
+                                <p class="accordion__item">
+                                    <a href="#">Предисловие</a>
+                                </p>
+                                <p class="accordion__item">
+                                    <a href="">Как это работает?</a>
+                                </p>
+                                <p class="accordion__item">
+                                    <a href="">Какие задачи вы сможете решить с помощью нашего сайта?</a>
+                                </p>
+                                <p class="accordion__item">
+                                    <a href="">Какая польза от заучивания стихов наизусть?</a>
+                                </p>
+                                <p class="accordion__item">
+                                    <a href="">Работа на сайте</a>
+                                </p>
+                                <p class="accordion__item">
+                                    <a href="">При покупке стихотворений из каталога вы получаете</a>
+                                </p>
+                            </div>
+                        </div>
+                        <h3 class="menu__heading">Статьи</h3>
+                        <div>
+                            <div class="accordion__list">
+                                <div class="accordion__item">
+                                    <a href="#">Предисловие</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">Как это работает?</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">Какие задачи вы сможете решить с помощью нашего сайта?</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">Какая польза от заучивания стихов наизусть?</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">Работа на сайте</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">При покупке стихотворений из каталога вы получаете</a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="menu__heading">Вопросы и ответы</h3>
+                        <div>
+                            <div class="accordion__list">
+                                <div class="accordion__item">
+                                    <a href="#">Предисловие</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">Как это работает?</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">Какие задачи вы сможете решить с помощью нашего сайта?</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">Какая польза от заучивания стихов наизусть?</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">Работа на сайте</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">При покупке стихотворений из каталога вы получаете</a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="menu__heading">Благотворительность</h3>
+                        <div>
+                            <div class="accordion__list">
+                                <div class="accordion__item">
+                                    <a href="#">Предисловие</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">Как это работает?</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">Какие задачи вы сможете решить с помощью нашего сайта?</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">Какая польза от заучивания стихов наизусть?</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">Работа на сайте</a>
+                                </div>
+                                <div class="accordion__item">
+                                    <a href="">При покупке стихотворений из каталога вы получаете</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu__content-item">
+                        <img src="<?= DIST_IMAGE . '/charity-test-img.jpg' ?>" alt="" class="menu__img">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <?php require TEMPLATE . '/_common/popups/_common/popup-footer.php' ?>
+    </div>
+</div>
+
+
