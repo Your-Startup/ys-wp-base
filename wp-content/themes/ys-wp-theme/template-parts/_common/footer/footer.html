@@ -66,11 +66,9 @@
     </div>
 </footer>
 
-<div class="popup-wrapper d-flex<?= $isHidden ?> js-popup-wrapper">
-    <?php do_action('ys/footer/popups') ?>
 
-    <?php require TEMPLATE . '/_common/popups/menu.php'; ?>
-    <?php require TEMPLATE . '/_common/popups/login.php'; ?>
-    <?php require TEMPLATE . '/_common/popups/reset-password.php'; ?>
-    <?php require TEMPLATE . '/_common/popups/registration.php'; ?>
+<div class="popup-wrapper d-flex is-hidden js-popup-wrapper">
+    <% include ./../popups/menu.html %>
+    <% include ./../popups/login.html %>
+    <% include ./../popups/reset-password.html %>
 </div>

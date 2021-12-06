@@ -10,6 +10,8 @@ export function popupJs() {
         element = element.closest('.js-popup-active');
         open    = element && element.dataset.popup;
 
+        console.log(element, open);
+
         if (!open && !close) {
             return;
         }

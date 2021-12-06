@@ -1,8 +1,8 @@
 export default class ysApi {
-    static location = YS_SITE_DATA.root;
+    static location = typeof YS_SITE_DATA !== 'undefined' ? YS_SITE_DATA.root : '';
     static init = {
         headers: {
-            'X-WP-Nonce': YS_SITE_DATA.nonce
+            'X-WP-Nonce': typeof YS_SITE_DATA !== 'undefined' ? YS_SITE_DATA.nonce : ''
         }
     }
 

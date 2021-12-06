@@ -1,15 +1,8 @@
-<?php
-/**
- * @var $popupActive
- */
-
-$isHidden = $popupActive === 'login' ? '' : ' is-hidden';
-?>
-<div class="popup-inner popup-menu<?= $isHidden ?> js-popup-inner js-popup-fullscreen" data-popup="login">
+<div class="popup-inner popup-menu is-hidden js-popup-inner js-popup-fullscreen" data-popup="login">
     <div class="popup-close icon-close is-mobile js-close"></div>
 
     <div class="popup-content menu">
-        <?php require TEMPLATE . '/_common/popups/_common/popup-header.php' ?>
+        <% include ./_common/popup-header.html %>
 
         <div class="container">
             <h2 class="sign-in__heading">Вход в учетную запись</h2>
@@ -76,7 +69,7 @@ $isHidden = $popupActive === 'login' ? '' : ' is-hidden';
             </form>
         </div>
 
-        <?php require TEMPLATE . '/_common/popups/_common/popup-footer.php' ?>
+        <% include ./_common/popup-footer.html %>
     </div>
 </div>
 

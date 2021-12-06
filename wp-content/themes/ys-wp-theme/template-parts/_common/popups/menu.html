@@ -1,10 +1,8 @@
-<?php
-?>
 <div class="popup-inner popup-menu is-hidden js-popup-inner js-popup-fullscreen" data-popup="menu">
     <div class="popup-close icon-close is-mobile js-close"></div>
 
     <div class="popup-content menu">
-        <?php require TEMPLATE . '/_common/popups/_common/popup-header.php' ?>
+        <% include ./_common/popup-header.html %>
 
         <div class="accordion">
             <div class="container">
@@ -127,13 +125,13 @@
                         </div>
                     </div>
                     <div class="menu__content-item">
-                        <img src="<?= DIST_IMAGE . '/charity-test-img.jpg' ?>" alt="" class="menu__img">
+                        <img src="" alt="" class="menu__img">
                     </div>
                 </div>
             </div>
         </div>
 
-        <?php require TEMPLATE . '/_common/popups/_common/popup-footer.php' ?>
+        <% include ./_common/popup-footer.html %>
     </div>
 </div>
 

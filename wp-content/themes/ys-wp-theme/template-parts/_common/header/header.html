@@ -1,9 +1,10 @@
+<% var currentUser = false %>
 
 <header>
     <div class="special__menu">
         <div class="menu__nav">
             <div class="menu__iamge">
-                <img class="menu__svg js-popup-active" data-popup="menu" src="<?= DIST_IMAGE . '/menu.svg' ?>" alt="">
+                <img class="menu__svg js-popup-active" data-popup="menu" src="/dist/images/menu.jpg" alt="">
             </div>
             <div>
                 <div class="menu__header_catalog">Подробнее о курсе</div>
@@ -21,12 +22,12 @@
 
     <div class="container">
         <div class="header_content">
-            <div class="menu_img js-popup-active" data-popup="menu"><img src="<?= DIST_IMAGE . '/menu.svg' ?>" alt="">
+            <div class="menu_img js-popup-active" data-popup="menu"><img src="/dist/images/menu.jpg" alt="">
             </div>
 
             <div class="header_crutch"></div>
 
-            <a class="header_catalog" href="<?= HOME_URL . '/poems/' ?>">Каталог</a>
+            <a class="header_catalog" href="">Каталог</a>
 
             <label class="header_search">
                 <input placeholder="Поиск" type="text">
@@ -37,21 +38,21 @@
             <div class="header_user">
 
                 <div class="header_enter">
-                    <?php if ($currentUser) { ?>
+                    <% if (currentUser) { %>
                         <div class="header_enter_ava">
-                            <img src="<?= DIST_IMAGE . '/nik_nik.svg' ?>" alt="">
+                            <img src="/dist/images/nik_nik.svg" alt="">
                         </div>
                         <div class="nik_nik">
-                            <?= $currentUser['login'] ?>
+                            nik_nik
                         </div>
 
                         <div class="header_enter_menu">
                             <div class="enter_menu_header">
                                 <div class="header_enter_ava">
-                                    <img class="ava" src="<?= DIST_IMAGE . '/nik_nik.svg' ?>" alt="">
+                                    <img class="ava" src="/dist/images/nik_nik.svg" alt="">
                                 </div>
                                 <div class="nik_nik">
-                                    <?= $currentUser['login'] ?>
+                                    nik_nik
                                 </div>
                             </div>
                             <div class="enter_menu_ul">
@@ -71,13 +72,13 @@
                             </div>
                             <div class="enter_menu_exit">Выйти</div>
                         </div>
-                    <?php } else { ?>
-                        <img src="<?= DIST_IMAGE . '/user.svg' ?>" alt="">
+                    <% } else { %>
+                        <img src="/dist/images/user.svg" alt="">
 
                         <div class="nik_nik">
                             <span class="hide js-popup-active" data-popup="login">Войти</span>
                         </div>
-                    <?php } ?>
+                    <% } %>
                 </div>
 
                 <div class="header_basket">
