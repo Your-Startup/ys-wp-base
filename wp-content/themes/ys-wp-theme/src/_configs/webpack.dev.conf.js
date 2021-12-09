@@ -3,24 +3,7 @@ const
     webpack           = require('webpack'),
     merge             = require('webpack-merge'),
     baseWebpackConfig = require('./webpack.base.conf'),
-    {PATHS}           = require('./helper'),
-    HtmlWebpackPlugin = require("html-webpack-plugin"),
-    glob              = require("glob");
-
-glob.sync(`${PATHS.template}/**/*.html`).forEach(item => {
-    let file = path.normalize(item)
-        .replace(path.join(PATHS.template, '/'), '')
-        .replace('.html', '');
-
-    baseWebpackConfig.plugins.push(
-        new HtmlWebpackPlugin({
-            filename: `${path.basename(item, path.extname(item))}.html`,
-            template: '!!ejs-compiled-loader!' + item,
-            inject  : true,
-            chunks  : ['base', file],
-        })
-    );
-});
+    {PATHS}           = require('./helper');
 
 const devWebpackConfig = merge(baseWebpackConfig, {
     mode     : 'development',
@@ -35,6 +18,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         },
         compress    : true,
         port        : 9000,
+    },
+    output   : {
+        publicPath: '/dist'
     },
     plugins  : [
         new webpack.SourceMapDevToolPlugin({

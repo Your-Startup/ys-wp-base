@@ -3,7 +3,48 @@ const path                 = require('path'),
       CopyWebpackPlugin    = require('copy-webpack-plugin'),
       {CleanWebpackPlugin} = require('clean-webpack-plugin'),
       {PATHS, getEntries}  = require('./helper'),
-      webpack              = require('webpack');
+      webpack              = require('webpack'),
+      HtmlWebpackPlugin    = require("html-webpack-plugin"),
+      glob                 = require("glob");
+
+let plugins = [
+    new MiniCssExtractPlugin({
+        filename: 'css/[name].css',
+    }),
+
+    // Удаляет все в папке dist
+    new CleanWebpackPlugin({
+        cleanStaleWebpackAssets: false
+    }),
+
+    new CopyWebpackPlugin([
+        {from: `${PATHS.src}/assets/images`, to: `${PATHS.dist}/images`},
+        {from: `${PATHS.src}/assets/fonts`, to: `${PATHS.dist}/fonts`},
+    ]),
+
+    new webpack.ProvidePlugin({
+        "$"            : "jquery",
+        "jQuery"       : "jquery",
+        "window.$"     : "jquery",
+        "window.jQuery": "jquery"
+    }),
+];
+
+glob.sync(`${PATHS.template}/**/*.html`).forEach(item => {
+    let file = path.normalize(item)
+        .replace(path.join(PATHS.template, '/'), '')
+        .replace('.html', '');
+
+    plugins.push(
+        new HtmlWebpackPlugin({
+            filename: `${path.basename(item, path.extname(item))}.html`,
+            template: '!!ejs-compiled-loader!' + item,
+            //inject  : true,
+            chunks: ['base', file],
+        })
+    );
+})
+
 module.exports = {
     optimization: {
         minimize: true,
@@ -32,7 +73,7 @@ module.exports = {
     output   : {
         filename  : 'js/[name].min.js',
         path      : PATHS.dist,
-        publicPath: '/dist'
+        publicPath: ''
     },
     module   : {
         //noParse: /jquery/,
@@ -91,26 +132,5 @@ module.exports = {
         //     $: 'jquery',
         //     jquery: 'jQuery',
     },
-    plugins  : [
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].css',
-        }),
-
-        // Удаляет все в папке dist
-        new CleanWebpackPlugin({
-            cleanStaleWebpackAssets: false
-        }),
-
-        new CopyWebpackPlugin([
-            {from: `${PATHS.src}/assets/images`, to: `${PATHS.dist}/images`},
-            {from: `${PATHS.src}/assets/fonts`, to: `${PATHS.dist}/fonts`},
-        ]),
-
-        new webpack.ProvidePlugin({
-            "$"            : "jquery",
-            "jQuery"       : "jquery",
-            "window.$"     : "jquery",
-            "window.jQuery": "jquery"
-        }),
-    ],
+    plugins  : plugins,
 };
